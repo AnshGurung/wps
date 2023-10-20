@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+// ignore: must_be_immutable
 class CustomTextFormField extends StatelessWidget {
   TextInputType keyboardType;
   String hintText;
@@ -16,8 +17,8 @@ class CustomTextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       child: TextFormField(
+      
         keyboardType: keyboardType,
-        textAlign: TextAlign.center,
         decoration: InputDecoration(
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),

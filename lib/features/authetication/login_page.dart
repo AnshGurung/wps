@@ -3,6 +3,7 @@ import 'package:wps/core/utils/asset_utils.dart';
 import 'package:wps/core/views/widgets/base_widget.dart';
 import 'package:wps/core/views/widgets/custom_text_form_field.dart';
 import 'package:wps/features/authetication/otp_screen.dart';
+import 'package:wps/features/authetication/widgets/submit_button.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -15,40 +16,51 @@ class LoginPage extends StatelessWidget {
       return SafeArea(
         child: Scaffold(
           body: SingleChildScrollView(
-            child: Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: config.appHorizontalPaddingLarge(),
-                //vertical: config.appVerticalPadding(15),
-              ),
-              child: Form(
-                key: formKey,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Padding(
-                      padding:
-                          EdgeInsets.only(top: config.appVerticalPadding(15)),
-                      child: Column(
-                        children: [
-                          Image.asset(
-                            AssetUtils.appLogo,
-                            height: config.appHeight(20),
+            child: Form(
+              key: formKey,
+              child: Column(
+                //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Stack(
+                    children: [
+                      SizedBox(
+                        width: config.appWidth(110),
+                        height: config.appHeight(50),
+                        child: Image.asset(
+                          AssetUtils.getImage(
+                            'circles.png',
                           ),
-                          config.verticalSpaceMedium(),
-                          const Text(
-                            'Company Name',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 28,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.blue,
-                            ),
-                          ),
-                        ],
+                          fit: BoxFit.fill,
+                          //width: config.appWidth(200),
+                          //height: config.appHeight(20),
+                        ),
                       ),
-                    ),
-                    config.verticalSpaceCustom(0.4),
-                    Column(
+                      //config.verticalSpaceMedium(),
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: config.appHorizontalPaddingLarge()),
+                        child: Column(
+                          children: [
+                            config.verticalSpaceCustom(0.4),
+                            const Text(
+                              'Company Name',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 28,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  config.verticalSpaceCustom(0.2),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: config.appHorizontalPaddingLarge()),
+                    child: Column(
                       children: [
                         CustomTextFormField(
                           keyboardType: TextInputType.number,
@@ -57,52 +69,36 @@ class LoginPage extends StatelessWidget {
                             if (value == null || value.isEmpty) {
                               return 'This field is required';
                             } else if (value.length != 10) {
-                              return 'Invaild phone number';
+                              return 'Invalid phone number';
                             }
                             return null;
                           },
                         ),
                         config.verticalSpaceMedium(),
-                        Row(
-                          children: [
-                            Expanded(
-                              child: GestureDetector(
-                                onTap: () {
-                                  if (formKey.currentState!.validate()) {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                const OtpScreen()));
-                                  }
-                                },
-                                child: Container(
-                                  padding: EdgeInsets.symmetric(
-                                      vertical:
-                                          config.appVerticalPaddingMedium()),
-                                  decoration: BoxDecoration(
-                                    color: Colors.blue,
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(8)),
-                                  ),
-                                  child: const Center(
-                                    child: Text(
-                                      'LOGIN',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ),
+                        SubmitButton(
+                          onTap: () {
+                            if (formKey.currentState!.validate()) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const OtpScreen(),
                                 ),
-                              ),
-                            ),
-                          ],
+                              );
+                            }
+                          },
+                          text: 'LOGIN',
+                        ),
+                        config.verticalSpaceExtraLarge(),
+                        const Text(
+                          'Version: 2.0.1',
+                          style: TextStyle(
+                            color: Color(0xff9F9F9F),
+                          ),
                         ),
                       ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ),

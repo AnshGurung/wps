@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
-import 'package:wps/core/utils/size_config.dart';
 import 'package:wps/core/views/widgets/base_widget.dart';
 
 class OtpScreen extends StatelessWidget {
@@ -17,7 +16,7 @@ class OtpScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
+                const Text(
                   'Verification Code',
                   style: TextStyle(
                     fontSize: 28,
@@ -25,7 +24,7 @@ class OtpScreen extends StatelessWidget {
                   ),
                 ),
                 config.verticalSpaceCustom(0.15),
-                Text(
+                const Text(
                   'Please enter the OTP sent on your registred mobile number',
                   style: TextStyle(
                     fontSize: 18,
@@ -36,7 +35,8 @@ class OtpScreen extends StatelessWidget {
                 config.verticalSpaceCustom(0.15),
                 OtpTextField(
                   fieldWidth: 50,
-                  margin: EdgeInsets.only(right: 20),
+                  showFieldAsBox: true,
+                  margin: const EdgeInsets.only(right: 20),
                   keyboardType: TextInputType.number,
                   numberOfFields: 4,
                   autoFocus: true,

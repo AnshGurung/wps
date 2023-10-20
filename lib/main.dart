@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wps/features/authetication/company_code_submisson_page.dart';
+import 'package:wps/features/authetication/login_page.dart';
+import 'package:wps/features/authetication/otp_screen.dart';
 import 'package:wps/features/comment/comment_page.dart';
 import 'package:wps/features/comment/widgets/comment_card.dart';
 
@@ -12,8 +14,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: CommentPage(),
+    return GestureDetector(
+      onTap: () {
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
+      child: MaterialApp(
+        home: LoginPage(),
+      ),
     );
   }
 }
