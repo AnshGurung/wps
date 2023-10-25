@@ -34,7 +34,7 @@ class OtpScreen extends StatelessWidget {
                 ),
                 config.verticalSpaceCustom(0.15),
                 OtpTextField(
-                  fieldWidth: 50,
+                  fieldWidth: 60,
                   showFieldAsBox: true,
                   margin: const EdgeInsets.only(right: 20),
                   keyboardType: TextInputType.number,
