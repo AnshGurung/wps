@@ -19,7 +19,6 @@ class RateUpdate extends StatelessWidget {
                 maxLength: 9,
                 decoration: const InputDecoration(
                   label: Text('Rate *'),
-                  //hintText: 'Description *',
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -32,7 +31,6 @@ class RateUpdate extends StatelessWidget {
                 maxLength: 80,
                 decoration: const InputDecoration(
                   label: Text('Description *'),
-                  //hintText: 'Description *',
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {

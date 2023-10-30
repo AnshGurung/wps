@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wps/core/views/widgets/base_widget.dart';
 
+// ignore: must_be_immutable
 class PrimaryButton extends StatelessWidget {
   String text;
   void Function() onTap;

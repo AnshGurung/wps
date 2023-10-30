@@ -17,15 +17,7 @@ class CommentPage extends StatelessWidget {
     return BaseWidget(builder: (context, config, theme) {
       return Scaffold(
         appBar: AppBar(
-          title: GestureDetector(
-            onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const CompanyCodeSubmissionPage()));
-            },
-            child: Text('data'),
-          ),
+          title: Text('data'),
         ),
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: config.appEdgePadding()),
@@ -36,7 +28,7 @@ class CommentPage extends StatelessWidget {
                 //height: 20,
                 child: Text('Total results: $itemCount'),
               ),
-              config.verticalSpaceLarge(),
+              config.verticalSpaceMedium(),
               Expanded(
                 child: ListView.builder(
                   itemCount: itemCount,
