@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:wps/core/utils/asset_utils.dart';
 import 'package:wps/core/views/widgets/base_widget.dart';
+import 'package:wps/features/authetication/login_page.dart';
+import 'package:wps/features/update_pages/update_rate_page/update_rate_page.dart';
+import 'package:wps/features/view_payment_history_page/view_payment_history_page.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -23,7 +26,11 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   void initState() {
     super.initState();
-    _controller.forward();
+    _controller.forward().whenComplete(() {
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => ViewPaymentHistoryPage()),
+      );
+    });
   }
 
   @override
